@@ -24,6 +24,7 @@ Installation of the QlikView Extension is straightforward, there is nothing spec
 * [(Download the sample QlikView application)](https://github.com/stefanwalther/D3SlopeGraph/raw/master/Demo/D3SlopeGraph_v1.0.0.qvw)
 * Install the extension on your local computer (doubleclick the .qar file)
 * Drag’n’Drop the extension within QlikView Desktop (using WebView)
+* Set the extension's properties as described above
 * Finally deploy the extension to your server (&#8594; [detailed instruction](http://www.qlikblog.at/1597/qliktip-40-installingdeploying-qlikview-extensions/))
 
 ### Configuration

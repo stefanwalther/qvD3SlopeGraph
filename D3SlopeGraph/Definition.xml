@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ExtensionObject Path="D3SlopeGraph" Label="D3 SlopeGraph" Type="object" Description="SlopeGraph for QlikView" PageWidth="10000" PageHeight="10000">
+
+  <Initiate Name="Caption.Allow.Minimize" Value="0" />
+  <Initiate Name="Caption.Icon.SendToExcel" Value="0" />
+  <Initiate Name="Caption.Icon.Print" Value="0" />
+  <Initiate Name="Caption.Allow.Maximize" Value="0" />
+  <Initiate Name="Caption.Show" Value="1" />
+  <Initiate Name="Caption.Text" Value="SlopeGraph for Qlikview" />
+  <Initiate Name="Layout.Border.Use" Value="1" />
+  <Initiate Name="Background.Color.Transparency" Value="255" />
+  <Initiate Name="Layout.Normal.Width" Value="700" />
+  <Initiate Name="Layout.Normal.Height" Value="300" />
+  <Initiate Name="Layout.Normal.Width" Value="500" />
+  <Initiate Name="Layout.Normal.Height" Value="300" />
+
+  <Dimension Label="Dimension" Require="" Prefer="" TargetName="'SlopeGraph Dimension'" Initial="" />
+
+  <Measurement Label="Value 1" Width="" TargetName="'SlopeGraph Value 1'" Initial="" />
+  <Measurement Label="Value 2" Width="" TargetName="'SlopeGraph Value 2'" Initial="" />
+
+  <!-- 0 -->
+  <Text Label="Title Left" Type="text" Expression="='Value 1'" />
+  
+  <!-- 1 -->
+  <Text Label="Title Right" Type="text" Expression="='Value 2'" />
+  
+  <!-- 2 -->
+  <Text Label="Plot Height" Type="text" Expression="-1" />
+
+
+  <!--<PropertiesPage Version="11" File="Properties.qvpp" />-->
+
+</ExtensionObject>
