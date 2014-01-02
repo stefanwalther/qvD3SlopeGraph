@@ -3,11 +3,14 @@ SlopeGraph for QlikView
 The chart type Slopegraph has been invented by Edward Tufte. This solution brings the concept of SlopeGraphs to QlikView using the concept of QlikView Extensions. 
 Screenshots
 --------------------------------------------------------------------------------
-**D3SlopeGraph in Action - Example 1:**  
+**D3SlopeGraph in Action - Basic Example:**  
 ![Configuration Dialog for D3SlopeGraph QlikView Extension](https://raw.github.com/stefanwalther/D3SlopeGraph/master/gh-pages/images/D3SlopeGraph_Example1.png)  
 
-**D3SlopeGraph in Action - Example 1, hovering a value pair:**  
+**D3SlopeGraph in Action - Hovering a Value Pair:**  
 ![Configuration Dialog for D3SlopeGraph QlikView Extension](https://raw.github.com/stefanwalther/D3SlopeGraph/master/gh-pages/images/D3SlopeGraph_Example1_Hovering.png)
+
+**D3SlopeGraph in Action - Collision Detection & Resolution:**  
+![Configuration Dialog for D3SlopeGraph QlikView Extension](https://raw.github.com/stefanwalther/D3SlopeGraph/master/gh-pages/images/D3SlopeGraph_CollisionResolution.png)
 
 **D3SlopeGraph - Configuration Dialog:**  
 ![Configuration Dialog for D3SlopeGraph QlikView Extension](https://raw.github.com/stefanwalther/D3SlopeGraph/master/gh-pages/images/D3SlopeGraph_Configuration.png)
@@ -52,7 +55,7 @@ Tested and developed for the following systems:
 
 ### Issues & Code-Contributions
 Code contributions are very welcome.
-If you have any issues, please post them on GitHub.
+If you have any issues, please post them [here on GitHub](https://github.com/stefanwalther/D3SlopeGraph/issues).
 
 ### License
 > The software is made available "AS IS" without any warranty of any kind under the MIT License (MIT).

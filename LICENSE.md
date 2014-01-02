@@ -31,7 +31,7 @@ For implementing this solution I have combined several slopegraph implementation
   * Script by [Hamilton Ulmer](http://skedasis.com/) covering a basic solution for detecting label collisions: http://skedasis.com/d3/slopegraph/ 
   * Text FadeOut approach by jsl6906: [http://bl.ocks.org/jsl6906/2554902](http://bl.ocks.org/jsl6906/2554902) 
 
-**D3**
+**D3**  
 [D3](http://d3js.org) by Michael Bostok
 > Copyright (c) 2013, Michael Bostock
 > All rights reserved.
