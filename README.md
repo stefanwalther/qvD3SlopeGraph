@@ -10,7 +10,8 @@ Screenshots
 ![Configuration Dialog for D3SlopeGraph QlikView Extension](https://raw.github.com/stefanwalther/D3SlopeGraph/master/gh-pages/images/D3SlopeGraph_Example1_Hovering.png)
 
 **D3SlopeGraph in Action - Collision Detection & Resolution:**  
-![Configuration Dialog for D3SlopeGraph QlikView Extension](https://raw.github.com/stefanwalther/D3SlopeGraph/master/gh-pages/images/D3SlopeGraph_CollisionResolution.png)
+![Configuration Dialog for D3SlopeGraph QlikView Extension](https://raw.github.com/stefanwalther/D3SlopeGraph/master/gh-pages/images/D3SlopeGraph_CollisionResolution.png)  
+
 
 **D3SlopeGraph - Configuration Dialog:**  
 ![Configuration Dialog for D3SlopeGraph QlikView Extension](https://raw.github.com/stefanwalther/D3SlopeGraph/master/gh-pages/images/D3SlopeGraph_Configuration.png)
