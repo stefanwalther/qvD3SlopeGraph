@@ -2,6 +2,11 @@ SlopeGraph for QlikView
 ================================================================================
 The chart type Slopegraph has been invented by Edward Tufte. This solution brings the concept of SlopeGraphs to QlikView using the concept of QlikView Extensions. 
 Screenshots
+
+A detailed article describing the concept behind this solution [is published on qlikblog.at](http://www.qlikblog.at/?p=3093)
+
+
+Screenshots
 --------------------------------------------------------------------------------
 **D3SlopeGraph in Action - Basic Example:**  
 ![Configuration Dialog for D3SlopeGraph QlikView Extension](https://raw.github.com/stefanwalther/D3SlopeGraph/master/gh-pages/images/D3SlopeGraph_Example1.png)  
@@ -37,7 +42,7 @@ The table below explains the properties available for configuring the behavior o
 |  **Value 2**     |  Numeric      | Numeric value for the value on the **right**|
 |  **Title Left**  |  AlphaNumeric | Left Title (default: blank)                 |
 |  **Title Right** |  AlphaNumeric | Right Title (default: blank)                |
-|  **Plot Height** |  Numeric 	 | Plotting Area height in pixel for sixing the plotting area independently from the extension's height (default: -1)                |
+|  **Plot Height** |  Numeric 	 | Plotting Area height in pixel for sizing the plotting area independently from the extension's height (default: -1)                |
 
 
 Additional Information
