@@ -1,0 +1,123 @@
+﻿
+/* Extension related styles*/
+.d3sg_Container {
+    overflow-y:auto;
+    overflow-x:hidden;
+}
+
+.d3sg_Container svg {
+    float:left;
+}
+
+/* ToolTip */
+.d3sg_ToolTip {
+    position: absolute;
+    top:0;
+    left:0;
+    text-align: left;
+    width: auto;
+    min-width:200px;
+    padding: 8px 5px 5px 8px;
+    font: 12px sans-serif;
+    background-color:whitesmoke;
+    border: 1px;
+    border-style:solid;
+    border-color:#333;
+    border-radius: 3px;
+    pointer-events: none;
+    z-index: 2147483647;
+}
+
+.d3sg_tt_label {
+    font-size:1.1em;
+    margin-bottom:5px;
+    font-weight:bold;
+    border-bottom: 1px dashed #ccc;
+    padding-bottom:3px;
+}
+
+.d3sg_tt_table {
+    padding: 4px 4px 4px 4px;
+}
+
+.d3sg_tt_table_headerCol {
+    font-weight:bold;
+    padding-right:8px;
+    color:#666;
+}
+
+.d3sg_tt_table_contentCol {
+    text-align:right;
+}
+
+.d3sg_centered {
+    text-align:center;
+}
+
+
+/* Chart related styles */
+/* General styles*/
+.d3sg {
+    cursor: default;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+
+}
+
+/* Top Titles (left and right) */
+.d3sg.t {
+    font-family:Arial;
+    font-size:13px;
+    font-weight:bold;
+    letter-spacing: 1px;
+
+}
+
+/* Text-Labels (left and right) */
+.d3sg.tl {
+    font-family: Arial;
+    font-size: 11px;
+    font-weight:bold;
+    fill:#666;
+
+    /* padding for improving the hover experience */
+    padding-top:10px;
+    padding-bottom:10px;
+}
+
+.d3sg.tl.over {
+    fill:#E9772E;
+}
+
+/* Values (left and right)*/
+.d3sg.v {
+    font-family: Arial;
+    font-size:10px;
+    font-weight:normal;
+    fill: #333;
+
+    /* padding for improving the hover experience */
+    padding-top:10px;
+    padding-bottom:10px;
+}
+
+.d3sg.v.over {
+    fill:#E9772E;
+    font-weight:bold;
+}
+
+/* Stroke */
+.d3sg.stroke {
+    stroke:#666;
+    stroke-opacity:0.6;
+
+
+}
+.d3sg.stroke.over {
+    stroke:#E9772E;
+    stroke-opacity:1;
+    stroke-width:3;
+
+}
