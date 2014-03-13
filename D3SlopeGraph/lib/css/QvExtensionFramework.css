@@ -1,0 +1,100 @@
+﻿
+
+ /* ---------------------------------------------------------------------------
+     Extension Framework
+ ----------------------------------------------------------------------------*/
+ .extFW_ValidationMsg {
+     width:100%;
+     padding-top:10px;
+     padding-bottom:10px;
+     padding-left:0px;
+     padding-right:0px;
+     margin: 0px 0px 0px 0px;
+     
+     background-color: #fbeef0;
+
+     border-bottom-style:solid;
+     border-bottom-color:#ccc;
+     border-bottom-width:1px;
+
+     font-family: "Open Sans",Calibri,Candara,Arial,sans-serif;
+     font-size:0.8em;
+
+ }
+
+ .extFW_ValidationMsg_Close {
+     position:relative;
+     height:20px;
+     float:right;
+     top:-10px;
+     margin-right:4px;
+     margin-top:4px;
+
+     line-height: 20px;
+     cursor:pointer;
+     font-size:20px;
+     font-weight:bold;
+     text-shadow: 0 1px 0 #ffffff;
+     opacity:0.2;
+ }
+
+ .extFW_ValidationMsg_Close:hover {
+     opacity:0.4;
+ }
+
+ .extFW_ValidationMsg_Title {
+     font-weight: bold;
+     padding-left:5px;
+ }
+
+ .extFW_ValidationMsg_Items {
+     list-style:circle;
+ }
+
+ /* Loading Panel */
+ .QvExtFW_LoadingPanel {
+    display:    block;
+    position:   absolute;
+    z-index:    1000;
+    top:        0;
+    left:       -1000px;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 ) 
+                /*url('http://sampsonresume.com/labs/pIkfp.gif')*/ 
+                50% 50% 
+                no-repeat;
+ }
+ 
+ /* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+.QvExtFW_Loading {
+    overflow: hidden; 
+    position:absolute;  
+    display:none;
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+.QvExtFW_Loading .QvExtFW_LoadingPanel {
+    display: block;
+}
+
+.QvExtFW_NotificationPanel_Container {
+    position:absolute;
+    top:0px;
+    right:0px;
+    float:right;    
+    font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
+    color:#666;
+    padding:5px 10px 5px 10px;
+    font-size:0.9em;
+    
+}
+
+.QvExtFW_Status_ok {
+    background-color: #CAFF70;
+}
+.QvExtFW_Status_error {
+    background-color: #fbdbdb;
+}
