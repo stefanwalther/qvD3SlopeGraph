@@ -16,7 +16,7 @@
     left:0;
     text-align: left;
     width: auto;
-    min-width:200px;
+    min-width:150px;
     padding: 8px 5px 5px 8px;
     font: 12px sans-serif;
     background-color:whitesmoke;
@@ -47,11 +47,11 @@
 }
 
 .d3sg_tt_table_contentCol {
-    text-align:right;
+    text-align:left;
 }
 
 .d3sg_centered {
-    text-align:center;
+    text-align:left;
 }
 
 
@@ -120,4 +120,15 @@
     stroke-opacity:1;
     stroke-width:3;
 
+}
+/* SVG path format for sparkline */
+    path {
+		stroke: steelblue;
+		stroke-width: 1;
+		fill: none;
+		}
+/* sparkcircle */
+.d3sg.sparkcircle {
+  fill: #f00;
+  stroke: none;
 }
