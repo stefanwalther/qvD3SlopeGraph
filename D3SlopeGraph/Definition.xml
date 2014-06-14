@@ -14,10 +14,10 @@
   <Initiate Name="Layout.Normal.Width" Value="500" />
   <Initiate Name="Layout.Normal.Height" Value="300" />
 
-  <Dimension Label="Dimension" Require="" Prefer="" TargetName="'SlopeGraph Dimension'" Initial="" />
-
+  <Dimension Label="Dimension 1" Require="" Prefer="" TargetName="'SlopeGraph Dimension 1'" Initial="" />
+  <Dimension Label="Dimension 2" Require="" Prefer="" TargetName="'SlopeGraph Dimension 2'" Initial="" />
+  
   <Measurement Label="Value 1" Width="" TargetName="'SlopeGraph Value 1'" Initial="" />
-  <Measurement Label="Value 2" Width="" TargetName="'SlopeGraph Value 2'" Initial="" />
 
   <!-- 0 -->
   <Text Label="Title Left" Type="text" Expression="='Value 1'" />

@@ -49,6 +49,41 @@ function D3SlopeGraph() {
         var data = this.config.data;
         //console.log(data);
 
+		//Process data for main and mini chart - start
+		//Store detail for selection
+		var data1 = data;
+		
+		//Pick min and max Dimension 2 data for labels
+		var minLab = d3.min(data, function(d) {
+					return d.labeldim});
+  
+		var maxLab = d3.max(data, function(d) {
+					return d.labeldim});	
+		//Rollup detail to create summary rows by Dimension 1 for main chart			
+		var data2 = [];
+					data2=d3.nest()
+					.key(function(d) {return d.label;})
+					.sortKeys(d3.ascending)
+					.rollup(function(cols) {
+					return {
+					left2:d3.max(cols, function(d) { return d.labeldim == minLab.toString() ? d.left : 1;}),
+					right2:d3.max(cols, function(d) { return d.labeldim == maxLab.toString() ? d.left : 1;})
+						};
+					})
+					.entries(data);
+											
+		var data3 = data2.map(function(d,i){
+					
+					return { 
+					"label": d.key,
+					"left" : data2[i].values.left2,
+					"right" : data2[i].values.right2,
+					}
+                    });					
+			
+		var data = data3;
+		//Process data for main and mini chart - end
+		
         function _max_key(v) {
             var vi, max_side;
             var _m = undefined;
@@ -439,6 +474,33 @@ function D3SlopeGraph() {
             d3.selectAll(rvId).classed("over", true)
             d3.selectAll(rlId).classed("over", true)
 
+			//Mini Chart tooltip display set up - start 
+			//Pick data for selected Dimension 1 value
+			var sel = data1.filter(function(j) { return j.label == d.label;});
+			
+			sel2 = [];
+           //cycle through the data and fill a simple array with y axis data only for spark line
+           for (var i = 0; i < sel.length; i++) { 
+               
+        	var la = sel[i].left;
+        
+             sel2.push( la );
+            } 
+			
+			//set useful variables
+			maxspark = d3.max(sel2);
+			minspark = d3.min(sel2);
+			 twd = d3.format(".3r");
+			avgtooltip = twd(d3.mean(sel2));
+			sparkcircle = sel2[sel2.length-1];
+			count_x = sel2.length;
+			//sparkline width & height
+			w = 60;
+			h = 15;
+			
+			//Mini Chart tooltip display set up - end
+						
+			
             // Tooltip
             var toolTipYOffSet = 20;
             divTooltip.transition()
@@ -446,10 +508,64 @@ function D3SlopeGraph() {
                 .style('opacity', .99)
                 .style('display', 'block');
             var trend = d.left > d.right ? '&#8595;' : (d.left < d.right ? '&#8593;' : '&#8596;');
-            divTooltip.html("<div class='d3sg_tt_label'>" + d.label + "</div><table class='d3sg_tt_table'><tr><td class='d3sg_tt_table_headerCol'>" + (rootConfig.y1 === '' ? 'Left' : rootConfig.y1) + ":</td><td class='d3sg_tt_table_contentCol'>" + d.left + "<td></tr><tr><td class='d3sg_tt_table_headerCol'>" + (rootConfig.y2 === '' ? 'Left' : rootConfig.y2) + ":</td><td class='d3sg_tt_table_contentCol'>" + d.right + "</td></tr><tr><td class='d3sg_tt_table_headerCol'>Trend:</td><td class='d3sg_tt_table_contentCol d3sg_centered'><b>" + trend + '</b></td></tr></table>')
-                .style('left', (d3.event.pageX) - leftOffset + 'px')
+           //   divTooltip.html("<div class='d3sg_tt_label'>" + d.label + "</div><table class='d3sg_tt_table'><tr><td class='d3sg_tt_table_headerCol'>" + (rootConfig.y1 === '' ? 'Left' : rootConfig.y1) + ":</td><td class='d3sg_tt_table_contentCol'>" + d.left + "<td></tr><tr><td class='d3sg_tt_table_headerCol'>" + (rootConfig.y2 === '' ? 'Left' : rootConfig.y2) + ":</td><td class='d3sg_tt_table_contentCol'>" + d.right + "</td></tr><tr><td class='d3sg_tt_table_headerCol'>Trend:</td><td class='d3sg_tt_table_contentCol d3sg_centered'><b>" + trend + '</b></td></tr></table>')
+           
+				//Mini Chart Change - place sparkline first in the tool tip box
+     		   divTooltip.html("<div class='d3sg_tt_label'>" + d.label + "</div><table class='d3sg_tt_table'><tr><td class='d3sg_tt_table_headerCol'>Trend:</td><td class='d3sg_tt_table_contentColMini1'><td></tr><tr><td class='d3sg_tt_table_headerCol'> </td><td class='d3sg_tt_table_contentCol'></td></tr><tr><td class='d3sg_tt_table_headerCol'>Min:</td><td class='d3sg_tt_table_contentCol'>" + minspark +"</td></tr><tr><td class='d3sg_tt_table_headerCol'>Max:</td><td class='d3sg_tt_table_contentCol d3sg_centered'>" + maxspark + "</td><b>" )
+
+
+		        .style('left', (d3.event.pageX) - leftOffset + 'px')
                 .style('top', ((d3.event.pageY) - divTooltip.attr('height') - topOffset + toolTipYOffSet) + 'px');
-        }
+        	//Mini Chart Display - Start
+			//Add sparkline - based on D3 Gallery example from Ben Christensen  http://bl.ocks.org/benjchristensen/1133472
+            // create an SVG element inside the #graph div that fills 100% of the div
+		var sgraph = d3.select(".d3sg_tt_table_contentColMini1").append("svg").attr("width", w).attr("height", h);
+
+			
+		// X scale will fit values from 0-number of values in y within pixels 0 to 'width'
+		var x = d3.scale.linear().domain([0,count_x]).range([0, w ]);
+		// Y scale will fit values from min to max within pixels 'height' to 0
+		var y = d3.scale.linear().domain([minspark, maxspark]).range([h, 0]);
+
+		// create a line object 
+		var line = d3.svg.line()
+		   .interpolate("basis")
+			// assign the X function to plot the line
+			.x(function(d,i) { 
+				// return the X coordinate 
+				return x(i); 
+			})
+			.y(function(d) { 
+				// return the Y coordinate 
+				return y(d); 
+			})
+	
+	/* //Add in the start value before the trend line ? Maybe not needed so leave it out just now.
+		sgraph.append('text')
+		.attr('x',x(0-7) )
+        .attr('y', h - 4)
+        .text(sel2[0]);
+	*/
+	
+	// display the line by appending an svg:path element with the data line we created above
+	sgraph.append("svg:path").attr("d", line(sel2));			
+		
+	//add in a circle at the end of the line 
+	sgraph.append('circle')
+     .attr('class', 'd3sg sparkcircle')
+     .attr('cx', x(count_x-1))
+     .attr('cy', y(sparkcircle))
+     .attr('r', 1.5); 
+
+	//add in the max value after the sparkline	
+	 sgraph.append('text')
+	 .attr('x',x(count_x) )
+            .attr('y', h-4)
+            .text(sparkcircle);
+	
+	//Mini Chart Display - End
+						
+		}
 
         function sectorOut(d) {
 

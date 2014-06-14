@@ -56,8 +56,8 @@ function D3SlopeGraph_Init() {
                         data: d,
                         left_margin: margin,
                         right_margin: margin,
-                        y1: _extFW.Settings.getDefPropValue('ValueY1'),
-                        y2: _extFW.Settings.getDefPropValue('ValueY2'),
+                     //   y1: _extFW.Settings.getDefPropValue('ValueY1'),
+                     //   y2: _extFW.Settings.getDefPropValue('ValueY2'),
                         uniqueId: _extFW.Settings.getUniqueId()
                     });
 
@@ -100,9 +100,10 @@ function D3SlopeGraph_Init() {
                     for (var i = 0; i < _t.Data.Rows.length; i++) {
                         counter++;
                         var label = _t.Data.Rows[i][0].text;
-                        var val1 = parseFloat(_t.Data.Rows[i][1].data);
-                        var val2 = parseFloat(_t.Data.Rows[i][2].data);
-                        data[counter] = { label: label, left: val1, right: val2 };
+						var labeldim = _t.Data.Rows[i][1].text;
+                        var val1 = parseFloat(_t.Data.Rows[i][2].data);
+						data[counter] = { label: label, labeldim: labeldim, left: val1 };
+						
                     }
                     return data;
 
